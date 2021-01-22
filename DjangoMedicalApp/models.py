@@ -13,7 +13,7 @@ class Company(models.Model):
     email = models.CharField(max_length=255)
     description = models.CharField(max_length=255)
     added_on = models.DateField(auto_now_add=True)
-    object = models.Manager()
+    objects = models.Manager()
 
 #create table medicine
 class Medicine(models.Model):
@@ -33,7 +33,7 @@ class Medicine(models.Model):
     in_stock_total = models.IntegerField()
     qty_in_strip = models.IntegerField()
     added_on = models.DateField(auto_now_add=True)
-    object = models.Manager()
+    objects = models.Manager()
 
 #create table Medical Details
 class MedicalDetails(models.Model):
@@ -44,7 +44,7 @@ class MedicalDetails(models.Model):
     salt_qty_type = models.CharField(max_length=255)
     description = models.CharField(max_length=255)
     added_on = models.DateField(auto_now_add=True)
-    object = models.Manager()
+    objects = models.Manager()
 
 #create table Employee
 class Employee(models.Model):
@@ -55,7 +55,7 @@ class Employee(models.Model):
     phone = models.CharField(max_length=255)
     address = models.CharField(max_length=255)
     added_on = models.DateField(auto_now_add=True)
-    object = models.Manager()
+    objects = models.Manager()
 
 #create table Customer
 class Customer(models.Model):
@@ -64,14 +64,14 @@ class Customer(models.Model):
     address = models.CharField(max_length=255)
     contact = models.CharField(max_length=255)
     added_on = models.DateField(auto_now_add=True)   
-    object = models.Manager() 
+    objects = models.Manager() 
 
 #create table Bill
 class Bill(models.Model):
     id = models.AutoField(primary_key=True)
     customer_id = models.ForeignKey(Customer, on_delete=models.CASCADE)
     added_on = models.DateField(auto_now_add=True)
-    object = models.Manager()
+    objects = models.Manager()
 
 #create table Employee Salary
 class EmployeeSalary(models.Model):
@@ -80,7 +80,7 @@ class EmployeeSalary(models.Model):
     salary_date = models.DateField()
     salary_amount = models.CharField(max_length=255)
     added_on = models.DateField(auto_now_add=True)
-    object = models.Manager()
+    objects = models.Manager()
 
 #create table bill details
 class BillDetails(models.Model):
@@ -89,7 +89,7 @@ class BillDetails(models.Model):
     medicne_id = models.ForeignKey(Medicine, on_delete=models.CASCADE)
     qty = models.IntegerField()
     added_on = models.DateField(auto_now_add=True)
-    object = models.Manager()
+    objects = models.Manager()
 
 #create tanle Customer Request
 class CustomerRequest(models.Model):
@@ -99,7 +99,7 @@ class CustomerRequest(models.Model):
     medicine_details = models.CharField(max_length=255)
     status = models.BooleanField(default=False)
     request_date = models.DateField(auto_now_add=True)
-    object = models.Manager()
+    objects = models.Manager()
 
 #create Company Account
 class CompanyAccount(models.Model):
@@ -112,7 +112,7 @@ class CompanyAccount(models.Model):
     transaction_date = models.DateField(auto_now_add=True)
     payment_mode = models.CharField(max_length=255)
     added_on = models.DateField(auto_now_add=True)
-    object = models.Manager()
+    objects = models.Manager()
 
 #create table Company Bank
 class CompanyBank(models.Model):
@@ -121,7 +121,7 @@ class CompanyBank(models.Model):
     ifsc = models.CharField(max_length=255)
     company_id = models.ForeignKey(Company, on_delete=models.CASCADE)
     added_on = models.DateField(auto_now_add=True)
-    object = models.Manager()
+    objects = models.Manager()
 
 #create table Employee Bank
 class EmployeeBank(models.Model):
@@ -130,6 +130,6 @@ class EmployeeBank(models.Model):
     ifsc = models.CharField(max_length=255)
     employee_id = models.ForeignKey(Employee, on_delete=models.CASCADE)
     added_on = models.DateField(auto_now_add=True)
-    object = models.Manager()
+    objects = models.Manager()
     
 
